@@ -4,6 +4,8 @@ namespace BowlingGame;
 
 class Game
 {
+	private $score = 0;
+
 	/**
 	 * Called each time a player rolls a ball. 
 	 * 
@@ -12,7 +14,7 @@ class Game
 	 */
 	public function roll($pins)
 	{
-
+		$this->score += $pins;
 	}
 
 	/**
@@ -21,6 +23,6 @@ class Game
 	 */
 	public function score()
 	{
-		return 0;
+		return $this->score;
 	}
 }
