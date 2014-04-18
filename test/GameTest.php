@@ -29,6 +29,11 @@ class GameTest extends \PHPUnit_Framework_TestCase
         $this->g->roll(5);
     }
 
+    private function rollStrike()
+    {
+        $this->g->roll(10);
+    }
+
     public function testGutterGame()
     {
         $n = 20;
@@ -49,6 +54,15 @@ class GameTest extends \PHPUnit_Framework_TestCase
         $this->g->roll(3);
         $this->rollMany(17,0);
         $this->assertEquals(16, $this->g->score());
+    }
+
+    public function testOneStrike()
+    {
+        $this->rollStrike();
+        $this->g->roll(3);
+        $this->g->roll(4);
+        $this->rollMany(17, 0);
+        $this->assertEquals(24, $this->g->score());
     }
 
 }
